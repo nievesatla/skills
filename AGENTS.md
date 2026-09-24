@@ -64,7 +64,7 @@ The `description` does the triggering, so it names concrete user phrases and sit
 | `grill-me` | Ask 10 to 15 questions and confirm a spec before building anything non-trivial |
 | `be-a-human` | Push back on thin briefs, ask 5 to 8 hard questions, then deliver with a position |
 | `prompt-master` | Restructure a brain-dump request into a clean task spec before executing |
-| `i-have-adhd` | Shape every reply for an ADHD reader: next action first, numbered steps, time estimates |
+| `short-term-memory` | Shape every reply for a reader with limited short-term memory: next action first, numbered steps, time estimates |
 | `how-to` | Coach a beginner step by step to a finished result with Claude |
 
 ### Tools and meta
@@ -86,14 +86,13 @@ The `description` does the triggering, so it names concrete user phrases and sit
 ## Known issues
 
 - `be-a-human`: frontmatter is broken. It has only `name`, and the real description sits below it in escaped Markdown (`\---`, `\#\#`), probably from a rich-text paste. It won't trigger reliably until the file is cleaned up.
-- `i-have-adhd`: the `description` is unquoted and contains `: `, so strict YAML parsers reject the frontmatter. Wrap the description in quotes to fix.
 - `ste`: references `references/word-substitutions.md` and `references/examples.md`, which don't exist.
 - `xlsx`: references `scripts/recalc.py`, `scripts/office/soffice.py`, and `LICENSE.txt`, none of which are here.
 - `deep-research-synthesizer`, `infographic-builder`: reference a `LICENSE.txt` that isn't here.
 - `negotiation` and `client-brief`: still contain `[ PLACEHOLDER ]` fields to fill in.
 - `xlsx`: an older copy of Anthropic's built-in xlsx skill, with extra financial-modeling rules the current built-in dropped. It triggers on the same requests as the built-in version.
 - `social-media/references/viral-recipe.md`: the `[REFERENCE POST]` block at the bottom is empty until a real post is pasted in.
-- `i-have-adhd` is written to apply to every reply on every topic. If this library is shared with anyone else, that skill should stay personal.
+- `short-term-memory` is written to apply to every reply on every topic. If this library is shared with anyone else, that skill should stay personal.
 
 ## Working in this repo
 

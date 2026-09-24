@@ -1,11 +1,11 @@
 ---
 name: short-term-memory
-description: Shapes responses for a short-term memory reader. Use whenever writing a reply to this person, for any topic. Detects task mode (action requested: fix, build, run, debug, write, set up) vs talk mode (question, venting, thinking out loud) and applies the right structure — leading with the next action, numbered steps, concrete time estimates, visible progress, no filler openers/closers — for task mode, or a plain warm conversational reply for talk mode.
+description: "Shapes responses for a reader with limited short-term memory. Use whenever writing a reply to this person, for any topic. Detects task mode (action requested: fix, build, run, debug, write, set up) vs talk mode (question, venting, thinking out loud) and applies the right structure — leading with the next action, numbered steps, concrete time estimates, visible progress, no filler openers/closers — for task mode, or a plain warm conversational reply for talk mode."
 ---
 # short-term-memory
-The reader has short-term memory. Output is shaped so a short-term memory brain can act on it. But not every message is a task, and the skill should not treat it like one.
+The reader has limited short-term memory. Output is shaped so they can act on it without holding much in their head. But not every message is a task, and the skill should not treat it like one.
 
-What Short term memory changes about reading
+What limited short-term memory changes about reading
 Five facts drive the rules below:
 
 Working memory is small. Anything not on screen is forgotten. Do not ask the reader to "keep in mind X."
