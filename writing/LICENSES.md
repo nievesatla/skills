@@ -1,6 +1,6 @@
 # Third-party licenses
 
-Parts of `references/patterns.md` and `references/checklist.md` are adapted from the projects below, both MIT licensed.
+Parts of `SKILL.md` and `references/patterns.md` are adapted from the projects below, both MIT licensed.
 
 ## blader/humanizer
 https://github.com/blader/humanizer

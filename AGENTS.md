@@ -6,17 +6,15 @@ A personal library of Claude skills. Each skill is a folder with a `SKILL.md` th
 
 ```
 skills/
-├── AGENTS.md              this file
-├── AI skills.md           links to upstream skill repos this library borrows from
-├── claude-skills-all/     the main library, one folder per skill
-│   └── <skill>/
-│       ├── SKILL.md       required: YAML frontmatter + instructions
-│       ├── references/    optional: detail loaded only when SKILL.md points to it
-│       ├── scripts/       optional: code the skill runs
-│       └── assets/        optional: images, templates
-└── social/                skills parked here to be moved to another repo later
-    └── social-media/
+├── AGENTS.md          this file
+└── <skill>/           one top-level folder per skill, nothing else
+    ├── SKILL.md       required: YAML frontmatter + instructions
+    ├── references/    optional: detail loaded only when SKILL.md points to it
+    ├── scripts/       optional: code the skill runs
+    └── assets/        optional: images, templates
 ```
+
+Every folder at the root is a skill, and each one is self-contained, so any skill can be copied or moved to another repo on its own.
 
 ## Skill format
 
@@ -39,7 +37,8 @@ The `description` does the triggering, so it names concrete user phrases and sit
 
 | Skill | Job |
 |---|---|
-| `writing` | The one skill for prose quality: drafting, humanizing, tightening, self-critique loop, AI-pattern audits, and the user's voice profile. Merged from humanizer, red-pen, tighten, personal-voice, and the two upstream repos in `AI skills.md` |
+| `writing` | The one skill for prose quality: drafting, humanizing, tightening, self-critique loop, AI-pattern audits, and the user's voice profile. Merged from humanizer, red-pen, tighten, personal-voice, and the two upstream repos below |
+| `social-media` | LinkedIn hooks, viral-post recipes, Apify LinkedIn post analytics, and TC Social Instagram carousels, one reference file per workflow. Merged from linkedin-hook, viral-recipe, linkedin-post-report, and tc-social-carousel. Built to be moved to another repo later |
 | `ste` | Rewrite in ASD-STE100 Simplified Technical English. Explicit invocation only (`/ste`), on purpose |
 | `client-brief` | One-page brief on a prospect before a call; runs `writing` on its prose |
 | `negotiation` | Multi-expert negotiation playbook for a deal; still a template with placeholders to fill |
@@ -76,14 +75,10 @@ The `description` does the triggering, so it names concrete user phrases and sit
 | `write-a-skill` | Turn a described behavior into a properly structured `SKILL.md` |
 | `skill-audit` | Review the library for overlap, dead weight, vague triggers, and gaps |
 
-### Parked: `social/social-media`
-
-One skill routing four workflows, each in its own reference file: LinkedIn hooks, viral-post recipes, Apify LinkedIn post analytics, and TC Social Instagram carousels. It lives outside `claude-skills-all/` so the whole `social/social-media/` folder can be moved to another repo without touching anything else.
-
 ## How the pieces fit
 
 - `writing` owns prose quality everywhere. Other skills that produce sentences (client-brief, negotiation, deck-builder, social-media) point to it instead of carrying their own banned-word lists.
-- Precedence inside `writing`: accuracy, then clarity, then specificity, then the user's voice profile, then the generic anti-AI rules. The voice profile lives at `claude-skills-all/writing/references/voice-profile.md` once calibrated (it doesn't exist yet).
+- Precedence inside `writing`: accuracy, then clarity, then specificity, then the user's voice profile, then the generic anti-AI rules. The voice profile lives at `writing/references/voice-profile.md` once calibrated (it doesn't exist yet).
 - `social-media` lets hook lines keep their platform conventions (trailing colons, "Here's...") and lets TC Social's lowercase-first brand voice win. The reframe ban ("It's not X, it's Y") applies everywhere.
 - `ste` deliberately stays separate: it requires no contractions and fixed sentence limits, which conflict with `writing`'s defaults, and it only fires when named.
 - Intake overlaps: `grill-me`, `be-a-damn-human`, and `prompt-master` all gate work behind questions or restructuring. They can fire on the same request. Worth sharpening their descriptions or merging if that becomes a problem.
@@ -91,10 +86,12 @@ One skill routing four workflows, each in its own reference file: LinkedIn hooks
 ## Known issues
 
 - `be-a-damn-human`: frontmatter is broken. It has only `name`, and the real description sits below it in escaped Markdown (`\---`, `\#\#`), probably from a rich-text paste. It won't trigger reliably until the file is cleaned up.
+- `i-have-adhd`: the `description` is unquoted and contains `: `, so strict YAML parsers reject the frontmatter. Wrap the description in quotes to fix.
 - `ste`: references `references/word-substitutions.md` and `references/examples.md`, which don't exist.
 - `xlsx`: references `scripts/recalc.py`, `scripts/office/soffice.py`, and `LICENSE.txt`, none of which are here.
 - `deep-research-synthesizer`, `infographic-builder`: reference a `LICENSE.txt` that isn't here.
 - `negotiation` and `client-brief`: still contain `[ PLACEHOLDER ]` fields to fill in.
+- `xlsx`: an older copy of Anthropic's built-in xlsx skill, with extra financial-modeling rules the current built-in dropped. It triggers on the same requests as the built-in version.
 - `social-media/references/viral-recipe.md`: the `[REFERENCE POST]` block at the bottom is empty until a real post is pasted in.
 - `i-have-adhd` is written to apply to every reply on every topic. If this library is shared with anyone else, that skill should stay personal.
 
@@ -104,4 +101,11 @@ One skill routing four workflows, each in its own reference file: LinkedIn hooks
 - When merging skills, delete the originals in the same commit and update every other skill that referenced them (search for the old names).
 - Keep `name` equal to the folder name.
 - Don't paste text from rich-text editors without checking for escaped Markdown.
-- Upstream sources are listed in `AI skills.md`. When pulling in content from them, keep their license notices (see `claude-skills-all/writing/LICENSES.md`).
+- New skills go in a new top-level folder. Don't add grouping folders; they break the one-folder-per-skill layout that Claude's skill loaders expect.
+
+## Upstream sources
+
+- https://github.com/blader/humanizer (MIT)
+- https://github.com/petergyang/no-ai-slop (MIT)
+
+Both are folded into `writing`. When pulling in more content from them, keep their license notices (see `writing/LICENSES.md`).

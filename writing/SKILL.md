@@ -21,7 +21,6 @@ Every pattern this skill bans is overrepresented in model output. A human might 
 
 Files in this skill:
 - `references/patterns.md`: the full catalog of AI tells, with before/after examples. Read it the first time you run this skill in a conversation, and whenever you audit.
-- `references/checklist.md`: the final pass. Run it before returning anything.
 - `references/voice.md`: how to calibrate and apply the user's voice profile.
 - `references/voice-profile.md`: the user's saved profile, if one exists.
 
@@ -57,8 +56,8 @@ If the user asks you to "show changes" or "explain", list each pattern removed w
 2. **Know the job.** Who reads this, where it will be published, and what they should think or do afterward. If a wrong guess would waste real effort, ask one question. Otherwise infer it.
 3. **Load the voice.** If `references/voice-profile.md` exists, read it and draft in that voice from the first word. If you're editing the user's own text, that text is the voice sample: note its vocabulary, sentence length, punctuation, bluntness, humor, and quirks before touching anything. With neither, use the default voice below.
 4. **Write or rewrite at sentence level.** Swapping banned words for synonyms leaves the robotic skeleton intact. Restructure each sentence around its actual point. When editing, make the minimum effective edit: fix the tells, errors, repetition, and tangles, and leave strong human sentences alone.
-5. **Run the red-pen loop, silently.** Attack the draft as the harshest reviewer in the room, fix every flag, repeat until a full pass finds nothing. Anything the user will send or publish gets at least 3 rounds. A quick reply gets 1. The attack list is in `references/checklist.md`. Never show intermediate drafts.
-6. **Run the final pass** in `references/checklist.md`.
+5. **Run the red-pen loop, silently.** Attack the draft as the harshest reviewer in the room, fix every flag, repeat until a full pass finds nothing. Anything the user will send or publish gets at least 3 rounds. A quick reply gets 1. Use the attack list below. Never show intermediate drafts.
+6. **Run the final pass** below.
 7. **Return per mode** (table above).
 
 ## Default voice
@@ -96,6 +95,34 @@ Default target: cut 30% unless the user names a number, a percentage, or a platf
 5. Keep the author's voice. Fragments stay fragments; formal stays formal. The result should read like the same person on a better day.
 
 Edge cases: if asked for a bigger cut than the draft can survive, deliver the length and name what meaning was lost. For lists and threads, tighten each item and keep the count unless an item is pure filler. If two ideas are fighting in one draft, tighten anyway and note that splitting would serve both.
+
+## Attack list (each red-pen round)
+
+Name the exact sentence that fails, not a vague verdict.
+
+1. **Workslop test.** Would the reader need to ask a follow-up before they could act? If yes, it fails. Everything below is how it fails.
+2. **Missing decisions.** Dates, owners, numbers, next steps, a clear stance. "We should consider" and "we'll revisit" are not decisions.
+3. **Empty calories.** Sentences that add no information. Mark each for deletion.
+4. **Unverifiable claims.** Any fact or number not supported by what the user gave you. Cut it or mark `[VERIFY]`. Never invent a number to make a sentence land.
+5. **Only-you line.** At least one line only this user could have written: a real detail, example, or named trade-off. If a sentence could move unchanged to another person, company, or product, it's filler.
+6. **Patterns.** Anything from `references/patterns.md`, strongest first.
+7. **Voice.** If a profile exists: sentence lengths in range, no never-list words, signature moves at their natural rate rather than caricature rate. Would a colleague who reads the user's writing weekly pause on any sentence?
+8. **Fact diff.** Compare against the source. Did the rewrite add or drop any fact, name, number, date, quote, citation, ranking, or commitment? An unsupported addition is an error. A lost claim is an error unless a pattern called for cutting it.
+
+Fix every flag, not most. Repeat until a full pass finds nothing. If a result still feels flat, the attack pass went easy: run two more rounds, harder on the workslop test.
+
+## Final pass
+
+Run once, silently, before returning anything:
+
+1. Cut the first sentence if it's throat-clearing.
+2. Replace vague claims with specific ones, or ask for the detail.
+3. Search for the tells that survive rewrites most often: a reframe (including across sentences and in headings), a one-line closer, a dash, a triad, a bold label.
+4. Remove unearned analogies, bloated verbs, synonym cycling, chat residue, and meta commentary.
+5. Break up repeated sentence shapes and uniform paragraph lengths.
+6. Cut the ending if it only repeats the point.
+7. Read it aloud. Does it sound like a person, or like an AI trying hard to imitate one? If forced, simplify. Would the writer recognize it as theirs?
+8. Does the output match the mode's return format?
 
 ## Register and overcorrection
 

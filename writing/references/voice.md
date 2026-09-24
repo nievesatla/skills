@@ -30,7 +30,7 @@ Failure modes: too few or too-short samples (proceed if they insist, mark fields
 1. Load the profile at the start of any writing task. Load raw samples only when the profile underdetermines something: a thin genre, a long piece, a tricky tonal call.
 2. Draft in the voice from the first word. Structure and rhythm are decided while drafting and can't be patched in afterward.
 3. Flex by register within the voice. When writing in a context the profile doesn't cover, extrapolate conservatively and say so.
-4. Verify with the voice item in `checklist.md`.
+4. Verify with the voice item in the attack list in SKILL.md.
 5. When the user edits your output or says "I'd never say that", add it to Learned corrections so it never needs repeating.
 
 ## Precedence
