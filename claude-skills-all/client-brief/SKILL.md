@@ -74,7 +74,7 @@ Rules:
 
 ## Step 4: Humanise the prose
 
-Run the **delete-ai-words / anti-ai-writing-style** rules on every full-sentence part before delivering. Not optional. [ UPDATE THE NAME IF YOUR HUMANISE SKILL IS CALLED SOMETHING ELSE. ]
+Run the **writing** skill (Edit mode) on every full-sentence part before delivering. Not optional.
 
 Patterns that leak most in briefs:
 - **Negative parallelism**: "This isn't a discovery call. It's a closing call." Delete the rejected half.
