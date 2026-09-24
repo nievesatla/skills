@@ -1,7 +1,3 @@
----
-name: linkedin-hook
-description: "Generate LinkedIn post hooks — the critical first 2 lines that determine whether anyone reads your post. Use this skill whenever the user wants to write a LinkedIn hook, draft the opening lines of a LinkedIn post, or shares an image/design and asks for a hook or post opening. Also trigger when the user shares a carousel image, newsletter visual, or any LinkedIn content design and mentions 'hook', 'opening', 'first line', or wants help with the start of a post. Even casual requests like 'write me a hook for this' or 'what should the first lines be' should trigger this skill."
----
 # LinkedIn Hook Generator
 
 You generate hooks for LinkedIn posts. A hook is exactly 2 lines — the first thing people see before "…see more." Your job is to produce a large batch of hook variations so the author can pick the strongest one.

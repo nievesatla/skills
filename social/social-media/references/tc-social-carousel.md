@@ -1,12 +1,8 @@
----
-name: tc-social-carousel
-description: Build Instagram carousel slides for TC Social using the fixed six-template system (cover/hook, list, quote, chart, photo, CTA) in the TC Social brand — warm neutral backgrounds, single burgundy accent, Bootzy display type, lowercase-first anti-guru voice, 1080x1350 artboards. Use this skill whenever the user asks for a TC Social carousel, Instagram carousel, IG slides, swipe post, carousel template, or any social slide/card design for TC Social — even if they only mention one slide, a hook, or "make this into a carousel." Also use it when adjusting or iterating on previously generated TC Social carousel designs.
----
 # TC Social Instagram Carousel Templates
 
 A reusable template SET for TC Social Instagram carousels. Six fixed slide templates that read as one cohesive carousel. The goal is a quiet, editorial, paper-and-ink feel — the opposite of loud "guru" social graphics.
 
-If reference card images exist in this skill's `assets/` folder, view them first and treat them as the source of truth for layout, spacing, and feel. The rules below reproduce their anatomy; when the references and these words seem to disagree, the references win.
+If reference card images exist in the `assets/` folder next to this skill's SKILL.md, view them first and treat them as the source of truth for layout, spacing, and feel. The rules below reproduce their anatomy; when the references and these words seem to disagree, the references win.
 
 ## Non-negotiable brand rules
 

@@ -1,7 +1,3 @@
----
-name: viral-recipe
-description: Capture the "recipe" of a single post that went viral, then reproduce that recipe for any new topic or person. Use this skill when someone has one post that did unusually well (for their standards) and wants to repeat what made it work — "this post went viral, capture why", "recreate this post for a different topic", "what's the recipe here". The skill stores the original viral post for reference, then iterates through questions and answers with the user to generate a new post that follows the same format, hook, caption structure, and tone — about anything, for anyone. Replace the reference post below with the actual viral post you're capturing.
----
 # Viral Recipe
 
 Capture what made one specific post go viral, then reproduce that exact recipe for a new topic or person. "Viral" here just means it did really well for this account's standards — if they normally get 5 likes and one post got 100, that's the post to capture.

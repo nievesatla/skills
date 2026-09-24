@@ -1,7 +1,3 @@
----
-name: linkedin-post-report
-description: Turn an Apify "LinkedIn profile posts" export (CSV or XLSX) into a decision-ready analytics report plus a reusable SOP for the next post. Use this skill whenever someone uploads a LinkedIn posts scrape and wants to know what's actually working — which formats, hooks, angles, and visuals drive engagement — and what to double down on or drop. Trigger on phrases like "analyze my LinkedIn posts", "what's working on my LinkedIn", "I scraped my posts", "Apify export", "LinkedIn content report", or when an XLSX/CSV with columns like engagement/likes, postImages, document/title, or linkedinUrl is attached. Built to handle the quirks of the Apify export format, which has misleading columns. Produces two files: a written report and a step-by-step SOP.
----
 # LinkedIn Post Report
 
 Take an Apify "LinkedIn profile posts" export — a CSV or XLSX scrape of one person's LinkedIn posts, anywhere from 50 to 5,000+ rows — and produce a decision-ready report on what's actually working, so the user can tell this person what to double down on and what to drop. Treat this as a serious analytics deliverable, not a quick summary.
