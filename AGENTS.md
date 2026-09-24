@@ -42,7 +42,7 @@ The `description` does the triggering, so it names concrete user phrases and sit
 | `ste` | Rewrite in ASD-STE100 Simplified Technical English. Explicit invocation only (`/ste`), on purpose |
 | `client-brief` | One-page brief on a prospect before a call; runs `writing` on its prose |
 | `negotiation` | Multi-expert negotiation playbook for a deal; still a template with placeholders to fill |
-| `deck-builder` | Outline a deck, get approval, then generate it in Gamma |
+| `deck-outliner` | Ask clarifying questions, agree a slide outline, then produce a content sheet (on-slide text, visuals, speaker notes, paste-ready block) to hand to Gamma or another deck builder |
 | `infographic-builder` | Turn text into a single 1080×1350 infographic PNG |
 | `handoff` | Compress a conversation into a handoff doc for a new session or colleague |
 
@@ -62,7 +62,7 @@ The `description` does the triggering, so it names concrete user phrases and sit
 | Skill | Job |
 |---|---|
 | `grill-me` | Ask 10 to 15 questions and confirm a spec before building anything non-trivial |
-| `be-a-damn-human` | Push back on thin briefs, ask 5 to 8 hard questions, then deliver with a position |
+| `be-a-human` | Push back on thin briefs, ask 5 to 8 hard questions, then deliver with a position |
 | `prompt-master` | Restructure a brain-dump request into a clean task spec before executing |
 | `i-have-adhd` | Shape every reply for an ADHD reader: next action first, numbered steps, time estimates |
 | `how-to` | Coach a beginner step by step to a finished result with Claude |
@@ -77,15 +77,15 @@ The `description` does the triggering, so it names concrete user phrases and sit
 
 ## How the pieces fit
 
-- `writing` owns prose quality everywhere. Other skills that produce sentences (client-brief, negotiation, deck-builder, social-media) point to it instead of carrying their own banned-word lists.
+- `writing` owns prose quality everywhere. Other skills that produce sentences (client-brief, negotiation, deck-outliner, social-media) point to it instead of carrying their own banned-word lists.
 - Precedence inside `writing`: accuracy, then clarity, then specificity, then the user's voice profile, then the generic anti-AI rules. The voice profile lives at `writing/references/voice-profile.md` once calibrated (it doesn't exist yet).
 - `social-media` lets hook lines keep their platform conventions (trailing colons, "Here's...") and lets TC Social's lowercase-first brand voice win. The reframe ban ("It's not X, it's Y") applies everywhere.
 - `ste` deliberately stays separate: it requires no contractions and fixed sentence limits, which conflict with `writing`'s defaults, and it only fires when named.
-- Intake overlaps: `grill-me`, `be-a-damn-human`, and `prompt-master` all gate work behind questions or restructuring. They can fire on the same request. Worth sharpening their descriptions or merging if that becomes a problem.
+- Intake overlaps: `grill-me`, `be-a-human`, and `prompt-master` all gate work behind questions or restructuring. They can fire on the same request. Worth sharpening their descriptions or merging if that becomes a problem.
 
 ## Known issues
 
-- `be-a-damn-human`: frontmatter is broken. It has only `name`, and the real description sits below it in escaped Markdown (`\---`, `\#\#`), probably from a rich-text paste. It won't trigger reliably until the file is cleaned up.
+- `be-a-human`: frontmatter is broken. It has only `name`, and the real description sits below it in escaped Markdown (`\---`, `\#\#`), probably from a rich-text paste. It won't trigger reliably until the file is cleaned up.
 - `i-have-adhd`: the `description` is unquoted and contains `: `, so strict YAML parsers reject the frontmatter. Wrap the description in quotes to fix.
 - `ste`: references `references/word-substitutions.md` and `references/examples.md`, which don't exist.
 - `xlsx`: references `scripts/recalc.py`, `scripts/office/soffice.py`, and `LICENSE.txt`, none of which are here.
