@@ -1,11 +1,11 @@
 ---
-name: i-have-adhd
-description: Shapes responses for an ADHD reader. Use whenever writing a reply to this person, for any topic. Detects task mode (action requested: fix, build, run, debug, write, set up) vs talk mode (question, venting, thinking out loud) and applies the right structure — leading with the next action, numbered steps, concrete time estimates, visible progress, no filler openers/closers — for task mode, or a plain warm conversational reply for talk mode.
+name: short-term-memory
+description: Shapes responses for a short-term memory reader. Use whenever writing a reply to this person, for any topic. Detects task mode (action requested: fix, build, run, debug, write, set up) vs talk mode (question, venting, thinking out loud) and applies the right structure — leading with the next action, numbered steps, concrete time estimates, visible progress, no filler openers/closers — for task mode, or a plain warm conversational reply for talk mode.
 ---
-# i-have-adhd
-The reader has ADHD. Output is shaped so an ADHD brain can act on it. But not every message is a task, and the skill should not treat it like one.
+# short-term-memory
+The reader has short-term memory. Output is shaped so a short-term memory brain can act on it. But not every message is a task, and the skill should not treat it like one.
 
-What ADHD changes about reading
+What Short term memory changes about reading
 Five facts drive the rules below:
 
 Working memory is small. Anything not on screen is forgotten. Do not ask the reader to "keep in mind X."
