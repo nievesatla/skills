@@ -14,7 +14,7 @@ skills/
     └── assets/        optional: images, templates
 ```
 
-Every folder at the root is a skill, and each one is self-contained, so any skill can be copied or moved to another repo on its own. The one exception is `for_claude/`: a generated copy of the library packaged for Claude Desktop (see below).
+Every folder at the root is a skill, and each one is self-contained, so any skill can be copied or moved to another repo on its own.
 
 ## Skill format
 
@@ -38,9 +38,9 @@ Every skill must also pass Claude Desktop's upload rules:
 - `description` is at most 1024 characters and contains no `<` or `>`.
 - Don't point to files that aren't in the folder (`references/...`, `scripts/...`, `LICENSE.txt`). A skill on Desktop can't write to its own folder, so a file the skill creates later only lasts for that conversation.
 
-## Claude Desktop builds
+## Claude Desktop
 
-`for_claude/` holds a copy of every skill (except `xlsx`, which collides with the built-in one) as a folder plus an upload-ready `<skill>.zip`. Never edit it by hand. Edit the root skill, then run `python3 for_claude/build.py`, which rebuilds everything, normalizes the frontmatter, and fails on anything that breaks the rules above.
+Every skill except `xlsx` (which collides with the built-in one) is uploaded to Claude Desktop as a custom skill. The uploaded copies don't sync with this repo: after changing a skill here, zip its folder (the folder itself at the zip root, so the zip contains `<skill>/SKILL.md`) and upload it again to replace the old version.
 
 ## Skills
 
@@ -97,7 +97,7 @@ Every skill must also pass Claude Desktop's upload rules:
 ## Known issues
 
 - `xlsx`: references `scripts/recalc.py`, `scripts/office/soffice.py`, and `LICENSE.txt`, none of which are here.
-- `writing`: `references/voice-profile.md` doesn't exist until the user calibrates. On Desktop the profile can't be saved into the skill, so it has to be added to the root skill and the zip rebuilt.
+- `writing`: `references/voice-profile.md` doesn't exist until the user calibrates. On Desktop the profile can't be saved into the skill, so it has to be added to the skill here and `writing` re-uploaded.
 - `negotiation` and `client-brief`: still contain `[ PLACEHOLDER ]` fields to fill in.
 - `xlsx`: an older copy of Anthropic's built-in xlsx skill, with extra financial-modeling rules the current built-in dropped. It triggers on the same requests as the built-in version.
 - `social-media/references/viral-recipe.md`: the `[REFERENCE POST]` block at the bottom is empty until a real post is pasted in.
