@@ -1,9 +1,7 @@
 ---
 name: reddit-researcher
 description: "Deep research engine covering the last 30 days across 7 sources — Reddit, X/Twitter, YouTube, LinkedIn, Hacker News, Web, TechCrunch. Uses Apify actors. Synthesizes findings into grounded, cited reports with deduplication, relevance scoring, and cross-source signal detection."
-argument-hint: "Claude vs GPT-4o, best AI coding tools, latest news on OpenAI"
 license: MIT
-user-invocable: true
 ---
 # Reddit Researcher
 

@@ -35,7 +35,7 @@ Before writing a single sentence, decide: is this **procedural** text (instructi
 
 ### Words
 - One word, one meaning, one part of speech, used consistently. Never rotate synonyms: pick one name for a thing and repeat it.
-- Before drafting, replace unapproved vocabulary. Read `references/word-substitutions.md` and apply it; it is the working dictionary for this skill.
+- Before drafting, replace unapproved vocabulary. Use the ASD-STE100 approved dictionary as the working dictionary for this skill.
 - Domain-specific nouns (part names, tool names, product names, UI labels) and domain verbs (drill, ream, boot, compile) are your **technical nouns/verbs** — keep them as-is, use each consistently, and do not verb a noun or noun a verb.
 - Noun clusters: maximum **3 words** ("overhead panel light" is the limit). Longer clusters get decomposed with prepositions or hyphenated on first use: "main-gear-door retraction-winch handle."
 - American English spelling.
@@ -64,13 +64,8 @@ After drafting, scan your text once for each of these and fix every hit before y
 5. -ing words used as verbs
 6. Missing articles (a/an/the/this) before nouns
 7. Synonym rotation (the same object under two names)
-8. Any word in the unapproved column of `references/word-substitutions.md`
+8. Any word that is not approved in the ASD-STE100 dictionary
 9. Warnings that state the risk before the command
-
-## Reference files
-
-- `references/word-substitutions.md` — unapproved → approved word mappings and one-meaning rulings. Read it before drafting; it is short.
-- `references/examples.md` — worked before/after rewrites (procedural, descriptive, warnings, common mistakes). Read it when rewriting existing text or when unsure how a rule applies.
 
 ## What NOT to touch
 

@@ -1,7 +1,6 @@
 ---
 name: deep-research-synthesizer
 description: Synthesizes insights from large datasets and source material, filters irrelevant data, identifies patterns, evaluates source quality, and produces actionable, well-cited summaries.
-license: Complete terms in LICENSE.txt
 ---
 # Deep Research Synthesizer
 ## Overview
