@@ -14,7 +14,7 @@ skills/
     └── assets/        optional: images, templates
 ```
 
-Every folder at the root is a skill, and each one is self-contained, so any skill can be copied or moved to another repo on its own.
+Every folder at the root is a skill, and each one is self-contained, so any skill can be copied or moved to another repo on its own. The one exception is `for_claude/`: a generated copy of the library packaged for Claude Desktop (see below).
 
 ## Skill format
 
@@ -30,6 +30,17 @@ description: >-           # the only thing Claude sees before deciding to load t
 ```
 
 The `description` does the triggering, so it names concrete user phrases and situations, not categories like "helps with writing". Keep the body focused on procedure and standards Claude wouldn't apply by default. Move long catalogs, templates, and examples into `references/` and have `SKILL.md` say when to read each file. Use `write-a-skill` to draft new skills and `skill-audit` to check the library for overlap.
+
+Every skill must also pass Claude Desktop's upload rules:
+
+- Frontmatter keys are limited to `name`, `description`, `license`, `allowed-tools`, and `metadata`. Claude Code-only keys like `argument-hint` and `user-invocable` get the upload rejected.
+- `name` is lowercase letters, digits, and hyphens, at most 64 characters.
+- `description` is at most 1024 characters and contains no `<` or `>`.
+- Don't point to files that aren't in the folder (`references/...`, `scripts/...`, `LICENSE.txt`). A skill on Desktop can't write to its own folder, so a file the skill creates later only lasts for that conversation.
+
+## Claude Desktop builds
+
+`for_claude/` holds a copy of every skill (except `xlsx`, which collides with the built-in one) as a folder plus an upload-ready `<skill>.zip`. Never edit it by hand. Edit the root skill, then run `python3 for_claude/build.py`, which rebuilds everything, normalizes the frontmatter, and fails on anything that breaks the rules above.
 
 ## Skills
 
@@ -85,10 +96,8 @@ The `description` does the triggering, so it names concrete user phrases and sit
 
 ## Known issues
 
-- `be-a-human`: frontmatter is broken. It has only `name`, and the real description sits below it in escaped Markdown (`\---`, `\#\#`), probably from a rich-text paste. It won't trigger reliably until the file is cleaned up.
-- `ste`: references `references/word-substitutions.md` and `references/examples.md`, which don't exist.
 - `xlsx`: references `scripts/recalc.py`, `scripts/office/soffice.py`, and `LICENSE.txt`, none of which are here.
-- `deep-research-synthesizer`, `infographic-builder`: reference a `LICENSE.txt` that isn't here.
+- `writing`: `references/voice-profile.md` doesn't exist until the user calibrates. On Desktop the profile can't be saved into the skill, so it has to be added to the root skill and the zip rebuilt.
 - `negotiation` and `client-brief`: still contain `[ PLACEHOLDER ]` fields to fill in.
 - `xlsx`: an older copy of Anthropic's built-in xlsx skill, with extra financial-modeling rules the current built-in dropped. It triggers on the same requests as the built-in version.
 - `social-media/references/viral-recipe.md`: the `[REFERENCE POST]` block at the bottom is empty until a real post is pasted in.

@@ -11,7 +11,7 @@ git clone git@github.com:nievesatla/skills.git
 ln -s "$PWD/skills/writing" ~/.claude/skills/writing
 ```
 
-**Claude apps:** zip a single skill folder and upload it as a custom skill in Claude's settings.
+**Claude apps (Desktop, web):** upload a ready-made zip from `for_claude/` as a custom skill in Claude's settings. To rebuild the zips after editing a skill, run `python3 for_claude/build.py`.
 
 ## Skills
 
